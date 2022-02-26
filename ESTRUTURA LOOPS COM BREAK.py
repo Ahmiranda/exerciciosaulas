@@ -1,6 +1,6 @@
 """
-UTILIZAÇÃO DE BREAKS
-é um recurso para quebrar loops com o comando break
+UTILIZAÇÃO DE 'BREAK's
+é um recurso para quebrar ‘loops’ com o comando 'break'
 é igual ao C, java e ao matlab
 
 """
