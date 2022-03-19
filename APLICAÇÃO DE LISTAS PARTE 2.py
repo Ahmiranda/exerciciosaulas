@@ -35,7 +35,7 @@ print(lista1)
 
 # podemos inserir um novo elemento na lista informando a posição na lista, também.
 
-lista1.insert(2,'novo valor')
+lista1.insert(2, 'novo valor')
 print(lista1)
 # o comando insert não substitui valores, ele insere o novo valor na posição da lista e desloca os demais para a direita
 
@@ -53,7 +53,7 @@ print(lista1)
 # forma 1
 lista1.reverse()
 lista5.reverse()
-print('lista 1:\n {}\n lista 2:\n{}\n '.format(lista1,lista5))
+print('lista 1:\n {}\n lista 2:\n{}\n '.format(lista1, lista5))
 
 # forma 2
 # segunda forma de reverter a lista: comando slice (essa coisa veio de strings)
@@ -61,7 +61,7 @@ print(lista1[::-1])
 print(lista5[::-1])
 # este passo a cima, reverteu o comando reverse da instrução anterior
 
-#comando para copiar lista: copy
+# comando para copiar lista: copy
 print('lista copiada')
 lista4 = lista5.copy()
 print(lista4)
@@ -91,7 +91,7 @@ print(lista6)
 
 # podemos repetir elementos dentro de uma lista
 print('nova lista')
-novalista = [1,2,3]
+novalista = [1, 2, 3]
 novalista = novalista * 3
 print(novalista)
 
@@ -108,7 +108,7 @@ print(curso)
 print('exemplo 2 do split')
 curso2 = 'curso,de,programação,em,python'
 print(curso2)
-curso2 = curso2.split(',') #digo que o separador é a virgula
+curso2 = curso2.split(',')  # digo que o separador é a virgula
 print(curso2)
 # este recurso do comando split é interessante para trabalhar com arquivos .text .csv e .json
 # esse material foi parado no vídeo 32.listas no tempo 1:07:00 de 2:21:37
@@ -120,14 +120,14 @@ print(curso2)
 # comando join
 print('comando join')
 curso = ' '.join(curso2)
-print (curso)
+print(curso)
 
 stringdalista2 = '$'.join(curso2)
 print(stringdalista2)
 # esse material foi parado no vídeo 32.listas no tempo 1:15:00 de 2:21:37
 
 # uma lista suporta qualquer tipo de dado no seu interior, inclusive misturando dados
-lista3 = [1, 2.45, True, 'Geek', 'd', [1,2,3], 563434]
+lista3 = [1, 2.45, True, 'Geek', 'd', [1, 2, 3], 563434]
 
 print(lista3)
 print(type(lista3))
@@ -139,4 +139,3 @@ soma = 0
 for elemento in lista1:
     soma = soma + elemento
     print(soma)
-
