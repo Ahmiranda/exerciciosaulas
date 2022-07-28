@@ -37,6 +37,7 @@ b = set(lista)  # cria um conjunto a partir de uma lista
 print(b)
 print(type(b))
 
+
 tupla = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 c = set(tupla)  # cria um conjunto a partir de uma tupla
 print(c)
