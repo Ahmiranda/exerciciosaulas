@@ -456,6 +456,88 @@ def sec5_quest21():
     return 'Finalizado'
 
 
+def sec5_quest22():
+    ano = int(input('Digite um ano qualquer para saber se ele é bissexto: \n'))
+    if ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
+        print('O ano {} é bissexto.'.format(ano))
+    else:
+        print('O ano {} não é bissexto.'.format(ano))
+    return 'Finalizado'
+
+
+def sec5_quest24():
+    index_estados = {
+        'MG': 0.07,
+        'SP': 0.12,
+        'RJ': 0.15,
+        'MS': 0.08
+    }
+    infos_estados = [input('Digite a sigla do estado e o valor do produto na região: \n') for _ in range(2)]
+    infos_estados.sort()
+    taxas = index_estados.get(infos_estados[1].upper(), 'Entrada inválida, tente novamente')
+
+    if type(taxas) == float:
+        valor_final = (1 + taxas) * float(infos_estados[0])
+        print('O valor final do produto em {0}, é R$: {1:.3f} '.format(infos_estados[1].upper(), valor_final))
+
+    else:
+        print(taxas)
+
+    return 'Finalizado'
+
+
+def sec5_quest25():
+    from sympy import symbols, init_printing
+    from numpy import array, dot, linspace
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as mpatches
+
+    init_printing(use_latex='mathjax', latex_mode='equation*')
+    x, y, delta = symbols('x y Δ')
+    coeficientes = [float(input('Digite o {0}º coeficiente: \n'.format(i + 1))) for i in range(3)]
+    dim_x = array([x ** 2, x, 1])
+    y = dot(dim_x, coeficientes)
+    delta = coeficientes[1] ** 2 - 4 * coeficientes[0] * coeficientes[2]
+    if delta < 0:
+        print('Não existe raízes reais para o polinômio.')
+    else:
+        x1 = (-coeficientes[1] + delta ** 0.5) / (2 * coeficientes[0])
+        x2 = (-coeficientes[1] - delta ** 0.5) / (2 * coeficientes[0])
+        print('As raízes do polinômio são: {0:.3f} e {1:.3f}'.format(x1, x2))
+
+        fig = plt.figure(figsize=(16, 9))
+        plt.style.use('seaborn-talk')
+        space = linspace(-10 + x1, 10 + x2, 100)
+        f = coeficientes[0] * space ** 2 + coeficientes[1] * space + coeficientes[2]
+        plt.axvline(-coeficientes[1] / (2 * coeficientes[0]), color='green', linestyle='dashed', linewidth=1)
+        plt.axhline(0, color='black')
+        plt.axvline(0, color='black')
+        plt.plot(space, f, color='blue')
+        plt.scatter([x1, x2], [0, 0], color='red')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title('Polinômio de grau 2')
+        eq = mpatches.Patch(color='blue', label='y = {0}x² + {1}x + {2}'.format(coeficientes[0], coeficientes[1], coeficientes[2]))
+        raiz = mpatches.Patch(color='red', label='Raízes: {0:.3f} e {1:.3f}'.format(x1, x2))
+        simetria = mpatches.Patch(color='green', label='Simetria: x = {0:.3f}'.format(-coeficientes[1] / (2 * coeficientes[0])))
+        plt.legend(handles=[eq, raiz, simetria], bbox_to_anchor=(1.02, 0.95), loc=2, borderaxespad=0.)
+        plt.tight_layout()
+        plt.grid(True)
+        plt.show()
+
+    return 'Finalizado'
+
+
+def sec5_quest30():
+    numeros = [float(input('Digite o {0}º de três números: \n'.format(i + 1))) for i in range(3)]
+    numeros.sort()
+    print('Os números em ordem crescente são: \n', end='')
+    print(*numeros, sep=', ')
+    print('Os números em ordem decrescente são: \n', end='')
+    print(*reversed(numeros), sep=', ')
+
+    return 'Finalizado'
+
 
 if __name__ == '__main__':
-    print(sec5_quest21(), end='')
+    print(sec5_quest25(), end='')
